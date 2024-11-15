@@ -1,0 +1,12 @@
+.mainContent {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+  }
+  
+  .widgets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
