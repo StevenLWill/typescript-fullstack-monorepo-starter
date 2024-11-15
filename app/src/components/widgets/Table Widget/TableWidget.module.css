@@ -1,0 +1,43 @@
+import React from 'react';
+import styles from './TableWidget.module.css';
+
+interface TableWidgetProps {
+  title: string;
+  data?: Array<{ id: number; name: string; status: string; date: string }>;
+}
+
+const defaultData = [
+  { id: 1, name: 'Order #1', status: 'Completed', date: '2024-01-10' },
+  { id: 2, name: 'Order #2', status: 'Pending', date: '2024-01-12' },
+  { id: 3, name: 'Order #3', status: 'Cancelled', date: '2024-01-15' },
+];
+
+const TableWidget: React.FC<TableWidgetProps> = ({ title, data = defaultData }) => {
+  return (
+    <div className={styles.tableWidget}>
+      <h2>{title}</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((order) => (
+            <tr key={order.id}>
+              <td>{order.id}</td>
+              <td>{order.name}</td>
+              <td>{order.status}</td>
+              <td>{order.date}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+export default TableWidget;
